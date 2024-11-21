@@ -19,6 +19,7 @@ import GroqLogo from "@/media/llmprovider/groq.png";
 import KoboldCPPLogo from "@/media/llmprovider/koboldcpp.png";
 import TextGenWebUILogo from "@/media/llmprovider/text-generation-webui.png";
 import LiteLLMLogo from "@/media/llmprovider/litellm.png";
+import PortkeyLogo from "@/media/llmprovider/portkey.png";
 import AWSBedrockLogo from "@/media/llmprovider/bedrock.png";
 import DeepSeekLogo from "@/media/llmprovider/deepseek.png";
 import APIPieLogo from "@/media/llmprovider/apipie.png";
@@ -57,6 +58,7 @@ import System from "@/models/system";
 import paths from "@/utils/paths";
 import showToast from "@/utils/toast";
 import { useNavigate } from "react-router-dom";
+import PortkeyOptions from "@/components/LLMSelection/PortkeyOptions";
 
 const TITLE = "LLM Preference";
 const DESCRIPTION =
@@ -201,6 +203,13 @@ const LLMS = [
     logo: LiteLLMLogo,
     options: (settings) => <LiteLLMOptions settings={settings} />,
     description: "Run LiteLLM's OpenAI compatible proxy for various LLMs.",
+  },
+  {
+    name: "Portkey",
+    value: "portkey",
+    logo: PortkeyLogo,
+    options: (settings) => <PortkeyOptions settings={settings} />,
+    description: "Run Portkey OpenAI compatible proxy for various LLMs.",
   },
   {
     name: "DeepSeek",

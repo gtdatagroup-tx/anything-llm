@@ -25,6 +25,7 @@ import KoboldCPPLogo from "@/media/llmprovider/koboldcpp.png";
 import TextGenWebUILogo from "@/media/llmprovider/text-generation-webui.png";
 import CohereLogo from "@/media/llmprovider/cohere.png";
 import LiteLLMLogo from "@/media/llmprovider/litellm.png";
+import PortkeyLogo from "@/media/llmprovider/portkey.png";
 import AWSBedrockLogo from "@/media/llmprovider/bedrock.png";
 import DeepSeekLogo from "@/media/llmprovider/deepseek.png";
 import APIPieLogo from "@/media/llmprovider/apipie.png";
@@ -46,6 +47,7 @@ import FireworksAiOptions from "@/components/LLMSelection/FireworksAiOptions";
 import MistralOptions from "@/components/LLMSelection/MistralOptions";
 import HuggingFaceOptions from "@/components/LLMSelection/HuggingFaceOptions";
 import PerplexityOptions from "@/components/LLMSelection/PerplexityOptions";
+import PortkeyOptions from "@/components/LLMSelection/PortkeyOptions";
 import OpenRouterOptions from "@/components/LLMSelection/OpenRouterOptions";
 import GroqAiOptions from "@/components/LLMSelection/GroqAiOptions";
 import CohereAiOptions from "@/components/LLMSelection/CohereAiOptions";
@@ -148,6 +150,14 @@ export const AVAILABLE_LLM_PROVIDERS = [
     options: (settings) => <TogetherAiOptions settings={settings} />,
     description: "Run open source models from Together AI.",
     requiredConfig: ["TogetherAiApiKey"],
+  },
+  {
+    name: "Portkey",
+    value: "portkey",
+    logo: PortkeyLogo,
+    options: (settings) => <PortkeyOptions settings={settings} />,
+    description: "Connect to various LLMs through Portkey's routing service.",
+    requiredConfig: ["PortkeyBasePath", "PortkeyApiKey"],
   },
   {
     name: "Fireworks AI",
