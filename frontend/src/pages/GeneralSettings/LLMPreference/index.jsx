@@ -10,6 +10,7 @@ import GenericOpenAiLogo from "@/media/llmprovider/generic-openai.png";
 import AzureOpenAiLogo from "@/media/llmprovider/azure.png";
 import AnthropicLogo from "@/media/llmprovider/anthropic.png";
 import GeminiLogo from "@/media/llmprovider/gemini.png";
+import VertexLogo from "@/media/llmprovider/vertex.png";
 import OllamaLogo from "@/media/llmprovider/ollama.png";
 import NovitaLogo from "@/media/llmprovider/novita.png";
 import LMStudioLogo from "@/media/llmprovider/lmstudio.png";
@@ -39,6 +40,7 @@ import LMStudioOptions from "@/components/LLMSelection/LMStudioOptions";
 import LocalAiOptions from "@/components/LLMSelection/LocalAiOptions";
 import NativeLLMOptions from "@/components/LLMSelection/NativeLLMOptions";
 import GeminiLLMOptions from "@/components/LLMSelection/GeminiLLMOptions";
+import VertexLLMOptions from "@/components/LLMSelection/VertexLLMOptions";
 import OllamaLLMOptions from "@/components/LLMSelection/OllamaLLMOptions";
 import NovitaLLMOptions from "@/components/LLMSelection/NovitaLLMOptions";
 import TogetherAiOptions from "@/components/LLMSelection/TogetherAiOptions";
@@ -93,6 +95,14 @@ export const AVAILABLE_LLM_PROVIDERS = [
     options: (settings) => <GeminiLLMOptions settings={settings} />,
     description: "Google's largest and most capable AI model",
     requiredConfig: ["GeminiLLMApiKey"],
+  },
+  {
+    name: "Vertex",
+    value: "vertex",
+    logo: VertexLogo,
+    options: (settings) => <VertexLLMOptions settings={settings} />,
+    description: "Google's Genereative AI model platform",
+    requiredConfig: ["VertexProjectName", "VertexRegion"],
   },
   {
     name: "HuggingFace",

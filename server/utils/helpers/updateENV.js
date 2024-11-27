@@ -57,6 +57,23 @@ const KEY_MAPPING = {
     checks: [validGeminiSafetySetting],
   },
 
+  VertexLLMModelPref: {
+    envKey: "VERTEX_LLM_MODEL_PREF",
+    checks: [isNotEmpty, validVertexModel],
+  },
+  VertexProjectName: {
+    envKey: "VERTEX_PROJECT_NAME",
+    checks: [isNotEmpty],
+  },
+  VertexRegion: {
+    envKey: "VERTEX_REGION",
+    checks: [isNotEmpty],
+  },
+  VertexSafetySetting: {
+    envKey: "VERTEX_SAFETY_SETTING",
+    checks: [validGeminiSafetySetting],
+  },
+
   // LMStudio Settings
   LMStudioBasePath: {
     envKey: "LMSTUDIO_BASE_PATH",
@@ -663,6 +680,7 @@ function supportedLLM(input = "") {
     "azure",
     "anthropic",
     "gemini",
+    "vertex",
     "lmstudio",
     "localai",
     "ollama",
@@ -708,6 +726,20 @@ function validGeminiModel(input = "") {
     "gemini-exp-1114",
     "gemini-exp-1121",
     "learnlm-1.5-pro-experimental",
+  ];
+  return validModels.includes(input)
+    ? null
+    : `Invalid Model type. Must be one of ${validModels.join(", ")}.`;
+}
+
+function validVertexModel(input = "") {
+  const validModels = [
+    "gemini-1.5-flash",
+    "gemini-1.5-pro",
+    "gemini-1.5-flash-001",
+    "gemini-1.5-pro-001",
+    "gemini-1.5-flash-002",
+    "gemini-1.5-pro-002",
   ];
   return validModels.includes(input)
     ? null
